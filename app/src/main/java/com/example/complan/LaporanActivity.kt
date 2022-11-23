@@ -19,6 +19,7 @@ class LaporanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLaporanBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var db: DatabaseReference
+    private lateinit var dbi: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,25 +36,29 @@ class LaporanActivity : AppCompatActivity() {
         }
 
         db = FirebaseDatabase.getInstance().getReference("kode_sekolah")
+        dbi = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid.toString())
 
         //val messagesRef = db.reference.child("")
 
         binding.button.setOnClickListener {
             val friendlyMessage = DataLaporan(
                 firebaseUser.uid,
-                "A01",
-                binding.editTextTextPersonName.text.toString(),
-                binding.editTextTextPersonName2.text.toString(),
+                binding.edtOknumName.text.toString(),
+                binding.edtDescription.text.toString(),
                 Date().time
             )
-            db.child("A02").child("ccc").setValue(friendlyMessage) { error, _ ->
-                if (error != null) {
-                    Toast.makeText(this, "gagal" + error.message, Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
+            dbi.get().addOnSuccessListener{
+               val kdSekolah =  it.child("kodeSekolah").value
+                db.child(kdSekolah.toString()).child("Laporan").push().setValue(friendlyMessage) { error, _ ->
+                    if (error != null) {
+                        Toast.makeText(this, "gagal" + error.message, Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
-            binding.editTextTextPersonName.setText("")
+
+           // binding.editTextTextPersonName.setText("")
         }
 
     }

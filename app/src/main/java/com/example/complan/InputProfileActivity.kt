@@ -59,14 +59,16 @@ class InputProfileActivity : AppCompatActivity() {
             )
 
             val userName = UserProfile(
-                namaUser.text.toString()
+                namaUser.text.toString(),
+                kodeSekolah = kodeSekolah.text.toString()
             )
 
             dbi.reference.child(CHILD_USER).child(firebaseUser.uid).setValue(userName){ error, _ ->
                 if (error != null) {
                     Toast.makeText(this, "gagal" + error.message, Toast.LENGTH_SHORT).show()
                 } else {
-                    dbi.reference.child(CHILD_SEKOLAH).child(kodeSekolah.text.toString()).child(CHILD_USER).child(firebaseUser.uid).setValue(dataSiswa) { error, _ ->
+                    dbi.reference.child(CHILD_SEKOLAH).child(kodeSekolah.text.toString()).child(CHILD_USER)
+                        .child(firebaseUser.uid).setValue(dataSiswa) { error, _ ->
                         if (error != null) {
                             Toast.makeText(this, "gagal input" + error.message, Toast.LENGTH_SHORT).show()
                         } else {

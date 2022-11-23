@@ -10,6 +10,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:text="Laporan Oknum"
@@ -23,7 +24,7 @@
         android:layout_height="511dp"
         android:layout_below="@+id/textView4"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="4dp"
         app:cardCornerRadius="10dp">
@@ -33,18 +34,20 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/edtDate"
                 android:layout_width="360dp"
-                android:layout_height="46dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginEnd="22dp"
+                android:padding="10dp"
                 android:background="@drawable/custom_edittext_report"
                 android:ems="10"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.583"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -57,7 +60,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+                app:layout_constraintTop_toBottomOf="@+id/edtOknumName" />
 
             <Button
                 android:id="@+id/button"
@@ -71,7 +74,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+                app:layout_constraintTop_toBottomOf="@+id/edtDescription" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -87,11 +90,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/edtOknumName"
                 android:layout_width="360dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginEnd="22dp"
+                android:padding="10dp"
                 android:background="@drawable/custom_edittext_report"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -111,17 +115,24 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+                app:layout_constraintTop_toBottomOf="@+id/edtDate" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/edtDescription"
                 android:layout_width="361dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginEnd="22dp"
+                android:padding="10dp"
                 android:background="@drawable/custom_edittext_report"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
+                android:lines="6"
+                android:gravity="top"
+                android:scrollbars="vertical"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollHorizontally="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />

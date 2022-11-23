@@ -36,7 +36,7 @@ class FirebaseMessageAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: DataLaporan) {
             binding.namaOknum.text = item.suspect
-            binding.idSekolah.text = item.idSchool
+            binding.idSekolah.text = item.description
         }
     }
 }

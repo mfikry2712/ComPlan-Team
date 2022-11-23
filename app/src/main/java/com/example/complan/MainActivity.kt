@@ -30,10 +30,9 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        binding.cek.setOnClickListener {
+        binding.btnToLaporan.setOnClickListener {
             //Toast.makeText(this, auth.uid, Toast.LENGTH_LONG).show()
-            val goToRegis = Intent(this@MainActivity, RegisterActivity::class.java)
-            goToRegis.putExtra("phone","+628581234567")
+            val goToRegis = Intent(this@MainActivity, LaporanActivity::class.java)
             startActivity(goToRegis)
         }
 
