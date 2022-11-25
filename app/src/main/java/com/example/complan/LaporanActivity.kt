@@ -39,6 +39,7 @@ class LaporanActivity : AppCompatActivity() {
         dbi = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid.toString())
 
         //val messagesRef = db.reference.child("")
+        //menambah comment
 
         binding.button.setOnClickListener {
             val friendlyMessage = DataLaporan(
