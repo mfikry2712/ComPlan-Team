@@ -16,6 +16,13 @@
         android:theme="@style/Theme.ComPlan"
         tools:targetApi="31">
         <activity
+            android:name=".LaporanFasilitasActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".InputProfileActivity"
             android:exported="false">
             <meta-data

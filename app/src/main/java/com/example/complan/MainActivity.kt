@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnToLaporan.setOnClickListener {
             //Toast.makeText(this, auth.uid, Toast.LENGTH_LONG).show()
-            val goToRegis = Intent(this@MainActivity, LaporanActivity::class.java)
+            val goToRegis = Intent(this@MainActivity, LaporanFasilitasActivity::class.java)
             startActivity(goToRegis)
         }
 
