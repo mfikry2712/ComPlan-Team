@@ -1,7 +1,5 @@
 # ComPlan-Team
 
-# ComPlan-Team
-
 Muhammad Fikry
 - Membuat fitur authentication
 - Membuat fitur login google dan email password dengan firebase
@@ -10,5 +8,3 @@ Muhammad Fikry
 - Membuat activity menu
 - Membuat activity laporan fasilitas dengan firebase storage
 
-On Proses
-- Membuat Activity Laporan fasilitas agar tampilan bagus
