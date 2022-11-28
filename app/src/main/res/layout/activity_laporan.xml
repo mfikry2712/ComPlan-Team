@@ -4,18 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_lapor2"
     tools:context=".LaporanActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:drawableStart="@drawable/ic_back"
+        android:drawablePadding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="kembali"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
         android:layout_alignParentTop="true"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="68dp"
         android:text="Laporan Oknum"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="35sp"
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
@@ -24,7 +40,7 @@
         android:layout_height="511dp"
         android:layout_below="@+id/textView4"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="4dp"
         app:cardCornerRadius="10dp">
@@ -156,4 +172,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
 </RelativeLayout>

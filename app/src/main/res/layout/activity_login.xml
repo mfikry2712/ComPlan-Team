@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fafafa"
+    android:background="@drawable/bg1"
     tools:context=".authentication.LoginActivity">
 
 
@@ -148,6 +148,7 @@
 
     <ImageView
         android:id="@+id/loginImage"
+        android:visibility="invisible"
         android:layout_width="409dp"
         android:layout_height="229dp"
         android:scaleType="fitXY"
@@ -169,7 +170,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/welcomeText2"
