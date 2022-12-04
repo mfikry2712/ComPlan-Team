@@ -13,7 +13,6 @@ class CustomButton : AppCompatButton {
 
     private lateinit var enabledBackground: Drawable
     private lateinit var disabledBackground: Drawable
-    private lateinit var ic: Drawable
     private var txtColor: Int = 0
 
     constructor(context: Context) : super(context) {

@@ -37,10 +37,7 @@ class LaporanPersonActivity : AppCompatActivity() {
         }
 
         db = FirebaseDatabase.getInstance().getReference("kode_sekolah")
-        dbi = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid.toString())
-
-        //val messagesRef = db.reference.child("")
-        //menambah comment
+        dbi = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid)
 
         binding.button.setOnClickListener {
             val friendlyMessage = DataLaporanPerson(
@@ -53,9 +50,9 @@ class LaporanPersonActivity : AppCompatActivity() {
                val kdSekolah =  it.child("kodeSekolah").value
                 db.child(kdSekolah.toString()).child("Laporan").child(firebaseUser.uid).child("Laporan Orang").push().setValue(friendlyMessage) { error, _ ->
                     if (error != null) {
-                        Toast.makeText(this, "gagal" + error.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Error" + error.message, Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -67,9 +64,5 @@ class LaporanPersonActivity : AppCompatActivity() {
             startActivity(Intent(this@LaporanPersonActivity, Menu::class.java))
         }
 
-    }
-
-    companion object{
-        const val CHILD_DATA = "oknum"
     }
 }

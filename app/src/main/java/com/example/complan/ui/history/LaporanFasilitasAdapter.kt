@@ -32,11 +32,11 @@ class LaporanFasilitasAdapter(
     inner class MessageViewHolder(private val binding: ItemHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: DataLaporanFasilitas) {
-            binding.tvNamaSuspect.text = item.namaFasilitas
+            binding.tvNamaSuspect.text = item.facilityName
             if (item.timestamp != null) {
                 binding.tvTanggal.text = DateUtils.getRelativeTimeSpanString(item.timestamp)
             }
-            binding.tvJenis2.text = item.lokasiFasilitas
+            binding.tvJenis2.text = item.facilityLocation
         }
     }
 }

@@ -7,9 +7,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
-import com.example.complan.R
 
 class EditTextEmailCustom : AppCompatEditText, View.OnTouchListener {
 
@@ -39,8 +37,8 @@ class EditTextEmailCustom : AppCompatEditText, View.OnTouchListener {
 
             }
             override fun afterTextChanged(s: Editable) {
-                val testmail = android.util.Patterns.EMAIL_ADDRESS.matcher(s).matches()
-                if (!testmail){
+                val testMail = android.util.Patterns.EMAIL_ADDRESS.matcher(s).matches()
+                if (!testMail){
                     error = "Email Invalid"
                 }
 

@@ -4,8 +4,8 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class DataLaporanFasilitas(
-    val namaFasilitas: String? = null,
-    val lokasiFasilitas: String? = null,
+    val facilityName: String? = null,
+    val facilityLocation: String? = null,
     val description: String? = null,
     val photo: String? = null,
     val timestamp: Long? = null

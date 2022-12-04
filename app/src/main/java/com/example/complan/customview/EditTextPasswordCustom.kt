@@ -4,13 +4,10 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.text.Editable
-import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.example.complan.R
@@ -19,8 +16,6 @@ class EditTextPasswordCustom : AppCompatEditText, View.OnTouchListener {
 
     private lateinit var showButtonImage: Drawable
     private lateinit var closeButtonImage: Drawable
-    private var showStatus: Int = 0
-    private var textType : Int = 0
 
     constructor(context: Context) : super(context) {
         init()
@@ -52,8 +47,8 @@ class EditTextPasswordCustom : AppCompatEditText, View.OnTouchListener {
                 //if (showStatus == 0) showClearButton() else hideClearButton()
             }
             override fun afterTextChanged(s: Editable) {
-                if (s.length > 0 && s.length < 6){
-                    error = "Ga Boleh Kurang dari 6 karakter"
+                if (s.isNotEmpty() && s.length < 6){
+                    error = "cannot be less than 6 characters"
                 }else{
                     //inputType = txtColor
                 }
@@ -65,37 +60,5 @@ class EditTextPasswordCustom : AppCompatEditText, View.OnTouchListener {
         return false
     }
 
-    private fun show(){
-        if (showStatus == 0){
-            showClearButton()
-        }else{
-            showCloseButton()
-        }
-    }
-
-    private fun showCloseButton() {
-        setButtonDrawables(endOfTheText = closeButtonImage)
-    }
-
-    private fun showClearButton() {
-        setButtonDrawables(endOfTheText = showButtonImage)
-    }
-    private fun hideClearButton() {
-        setButtonDrawables()
-    }
-
-    private fun setButtonDrawables(
-        startOfTheText: Drawable? = null,
-        topOfTheText:Drawable? = null,
-        endOfTheText:Drawable? = null,
-        bottomOfTheText: Drawable? = null
-    ){
-        setCompoundDrawablesWithIntrinsicBounds(
-            startOfTheText,
-            topOfTheText,
-            endOfTheText,
-            bottomOfTheText
-        )
-    }
 
 }

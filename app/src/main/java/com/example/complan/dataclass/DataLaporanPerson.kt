@@ -5,7 +5,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 @IgnoreExtraProperties
 data class DataLaporanPerson(
     val suspect: String? = null,
-    val jenisPelanggaran: String? = null,
+    val violationType: String? = null,
     val description: String? = null,
     val timestamp: Long? = null
 ){

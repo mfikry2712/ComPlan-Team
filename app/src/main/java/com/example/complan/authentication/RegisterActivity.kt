@@ -24,14 +24,14 @@ class RegisterActivity : AppCompatActivity() {
             val textPassword = binding.edtPassword.text.toString()
             val textConfirmPassword = binding.edtConfirmPassword.text.toString()
 
-            if (!textMail.isEmpty() && !textPassword.isEmpty() && !textConfirmPassword.isEmpty()){
-                if(textConfirmPassword.equals(textPassword)){
+            if (textMail.isNotEmpty() && textPassword.isNotEmpty() && textConfirmPassword.isNotEmpty()){
+                if(textConfirmPassword == textPassword){
                     signUp(textMail,textPassword)
                 }else{
                     Toast.makeText(this, "Confirm Password ber beda", Toast.LENGTH_LONG).show()
                 }
             }else{
-                Toast.makeText(this, "Harap isi semua field!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "please fill in all fields!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -39,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun signUp(email : String, password : String){
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
             if (it.isSuccessful){
-                Toast.makeText(this, "Registrasi Berhasil!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Successful registration!", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
             }else{
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_LONG).show()

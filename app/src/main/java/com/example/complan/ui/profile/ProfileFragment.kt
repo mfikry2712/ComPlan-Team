@@ -20,8 +20,6 @@ class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: DatabaseReference
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,9 +28,8 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,7 +43,7 @@ class ProfileFragment : Fragment() {
             return
         }
 
-        db = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid.toString())
+        db = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid)
 
         db.get().addOnSuccessListener{
             val kdSekolah =  it.child("kodeSekolah").value.toString()

@@ -26,7 +26,6 @@ class FragmentRiwayatFasilitas : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseDatabase
-    private lateinit var adapter: LaporanFasilitasAdapter
     private lateinit var dbi: DatabaseReference
     private lateinit var kd : String
 
@@ -40,9 +39,8 @@ class FragmentRiwayatFasilitas : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRiwayatFasilitasBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,12 +57,12 @@ class FragmentRiwayatFasilitas : Fragment() {
         }else
         {
             Log.d(null, "ada"+firebaseUser.uid)
-            dbi = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid.toString())
+            dbi = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid)
         }
 
         dbi.get().addOnSuccessListener{
             kd =  it.child("kodeSekolah").value.toString()
-            Log.d("test value of kd", kd.toString())
+            Log.d("test value of kd", kd)
             msgRef.value = db.reference.child("kode_sekolah")
                 .child(kd).child("Laporan")
                 .child(firebaseUser!!.uid)
@@ -92,7 +90,7 @@ class FragmentRiwayatFasilitas : Fragment() {
 
     }
 
-    public override fun onResume() {
+    override fun onResume() {
         super.onResume()
         adapterObs.observe(requireActivity()) {
             if (it != null) {
@@ -104,7 +102,7 @@ class FragmentRiwayatFasilitas : Fragment() {
         }
     }
 
-    public override fun onPause() {
+    override fun onPause() {
         //adapter.stopListening()
         adapterObs.value?.stopListening()
         super.onPause()
@@ -114,9 +112,4 @@ class FragmentRiwayatFasilitas : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-    companion object {
-        const val ARG_SECTION_NUMBER = "section_number"
-    }
-
 }

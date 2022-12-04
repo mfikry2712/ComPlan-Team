@@ -1,15 +1,11 @@
 package com.example.complan.inputform
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.example.complan.menuandpager.Menu
 import com.example.complan.authentication.LoginActivity
 import com.example.complan.databinding.ActivityLaporanFasilitasBinding
@@ -25,32 +21,10 @@ import java.util.*
 class LaporanFasilitasActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLaporanFasilitasBinding
-    lateinit var selectedImg: Uri
+    private lateinit var selectedImg: Uri
     private lateinit var db: DatabaseReference
     private lateinit var dbi: DatabaseReference
     private lateinit var auth: FirebaseAuth
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (!allPermissionsGranted()) {
-                Toast.makeText(
-                    this,
-                    "Tidak mendapatkan permission.",
-                    Toast.LENGTH_SHORT
-                ).show()
-                //finish()
-            }
-        }
-    }
-
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,15 +35,6 @@ class LaporanFasilitasActivity : AppCompatActivity() {
         db = FirebaseDatabase.getInstance().getReference("kode_sekolah")
 
         auth = Firebase.auth
-
-
-        if (!allPermissionsGranted()) {
-            ActivityCompat.requestPermissions(
-                this,
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
-            )
-        }
 
         binding.btnSelectImage.setOnClickListener { startGallery() }
         binding.btnSendFasilitas.setOnClickListener{ uploadImage() }
@@ -137,12 +102,4 @@ class LaporanFasilitasActivity : AppCompatActivity() {
             binding.btnSelectImage.setImageURI(selectedImg)
         }
     }
-
-    companion object {
-        const val CAMERA_X_RESULT = 200
-
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
-    }
-
 }

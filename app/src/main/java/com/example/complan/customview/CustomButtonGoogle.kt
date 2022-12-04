@@ -12,7 +12,6 @@ import com.example.complan.R
 class CustomButtonGoogle : AppCompatButton {
 
     private lateinit var enabledBackground: Drawable
-    private lateinit var disabledBackground: Drawable
     private lateinit var ic: Drawable
     private var txtColor: Int = 0
 
@@ -35,7 +34,7 @@ class CustomButtonGoogle : AppCompatButton {
         setTextColor(txtColor)
         textSize = 12f
         gravity = Gravity.CENTER
-        text = "dengan Google"
+        text = resources.getString(R.string.cv_btn_google)
     }
     private fun init() {
         ic = ContextCompat.getDrawable(context, R.drawable.ic_google) as Drawable

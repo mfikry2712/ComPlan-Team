@@ -11,7 +11,6 @@ import com.example.complan.R
 import com.example.complan.databinding.ActivityInputProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -19,12 +18,11 @@ import com.google.firebase.ktx.Firebase
 class InputProfileActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInputProfileBinding
-    private lateinit var namaUser : EditText
-    private lateinit var jurusanUser : EditText
-    private lateinit var kodeSekolah : EditText
+    private lateinit var userName : EditText
+    private lateinit var userMajor : EditText
+    private lateinit var schoolCode : EditText
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var db: DatabaseReference
     private lateinit var dbi: FirebaseDatabase
 
 
@@ -33,14 +31,13 @@ class InputProfileActivity : AppCompatActivity() {
         binding = ActivityInputProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        namaUser = findViewById(R.id.edtName)
-        jurusanUser = findViewById(R.id.edtJurusan)
-        kodeSekolah = findViewById(R.id.edtCode)
+        userName = findViewById(R.id.edtName)
+        userMajor = findViewById(R.id.edtJurusan)
+        schoolCode = findViewById(R.id.edtCode)
 
         auth = Firebase.auth
         val firebaseUser = auth.currentUser
         if (firebaseUser == null) {
-            // Not signed in, launch the Login activity
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
@@ -51,24 +48,24 @@ class InputProfileActivity : AppCompatActivity() {
 
         binding.btnSend.setOnClickListener{
 
-            val dataSiswa = UserProfile(
-                namaUser.text.toString(),
-                jurusanUser.text.toString(),
-                kodeSekolah.text.toString()
+            val dataStudent = UserProfile(
+                userName.text.toString(),
+                userMajor.text.toString(),
+                schoolCode.text.toString()
             )
 
-            dbi.reference.child(CHILD_USER).child(firebaseUser.uid).setValue(dataSiswa){ error, _ ->
+            dbi.reference.child(CHILD_USER).child(firebaseUser.uid).setValue(dataStudent){ error, _ ->
                 if (error != null) {
-                    Toast.makeText(this, "gagal" + error.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Error" + error.message, Toast.LENGTH_SHORT).show()
                 } else {
-                    dbi.reference.child(CHILD_SEKOLAH).child(kodeSekolah.text.toString()).child(
+                    dbi.reference.child(CHILD_SCHOOL).child(schoolCode.text.toString()).child(
                         CHILD_USER
                     )
-                        .child(firebaseUser.uid).setValue(dataSiswa) { error, _ ->
-                        if (error != null) {
-                            Toast.makeText(this, "gagal input" + error.message, Toast.LENGTH_SHORT).show()
+                        .child(firebaseUser.uid).setValue(dataStudent) { errorStatus, _ ->
+                        if (errorStatus != null) {
+                            Toast.makeText(this, "Error" + errorStatus.message, Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this@InputProfileActivity, MainActivity::class.java))
                             finish()
                         }
@@ -80,6 +77,6 @@ class InputProfileActivity : AppCompatActivity() {
 
     companion object{
         const val CHILD_USER = "user"
-        const val CHILD_SEKOLAH = "kode_sekolah"
+        const val CHILD_SCHOOL = "kode_sekolah"
     }
 }

@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var authReference: DatabaseReference
 
     private lateinit var edtEmail : EditText
-    private lateinit var edtpassword : EditText
+    private lateinit var edtPassword : EditText
     private lateinit var btnGoogle : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,11 +42,11 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var testmail = false
-        var testpass = false
+        var testMail = false
+        var testPass = false
 
         edtEmail = findViewById(R.id.edtMail)
-        edtpassword = findViewById(R.id.edtPassword)
+        edtPassword = findViewById(R.id.edtPassword)
         btnGoogle = findViewById(R.id.btnGoogle)
 
         edtEmail.addTextChangedListener(object : TextWatcher{
@@ -55,8 +55,8 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                testmail = android.util.Patterns.EMAIL_ADDRESS.matcher(s).matches()
-                binding.btnLogin.isEnabled = testpass && testmail
+                testMail = android.util.Patterns.EMAIL_ADDRESS.matcher(s).matches()
+                binding.btnLogin.isEnabled = testPass && testMail
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -65,14 +65,14 @@ class LoginActivity : AppCompatActivity() {
 
         })
 
-        edtpassword.addTextChangedListener(object : TextWatcher{
+        edtPassword.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                testpass = s.length >= 6
-                binding.btnLogin.isEnabled = testpass && testmail
+                testPass = s.length >= 6
+                binding.btnLogin.isEnabled = testPass && testMail
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -151,12 +151,12 @@ class LoginActivity : AppCompatActivity() {
     private fun signInWithEmailPassword(email : String, password: String){
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
             if (it.isSuccessful){
-                Toast.makeText(this, "Berhasil Login", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
                 val user = auth.currentUser
                 updateUI(user)
             }
             else{
-                Toast.makeText(this, "Gagal Login", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
                 Log.w(TAG, "signInWithCredential:failure", it.exception)
                 updateUI(null)
             }
@@ -181,14 +181,11 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
 
     companion object {
         private const val TAG = "LoginActivity"
-        const val KODE_SEKOLAH = ""
-
     }
 }

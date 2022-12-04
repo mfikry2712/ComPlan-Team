@@ -85,5 +85,7 @@
     <string name="ih_category">TV_Kategori</string>
     <string name="ih_time">TV_Tanggal</string>
 
+    //Untuk Custom View
+    <string name="cv_btn_google">Dengan Google</string>
 
 </resources>

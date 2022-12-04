@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.complan.inputform.LaporanPersonActivity
 import com.example.complan.inputform.LaporanFasilitasActivity
@@ -34,24 +33,21 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        (activity as AppCompatActivity).supportActionBar?.title = "awdaw"
-
         auth = Firebase.auth
         val firebaseUser = auth.currentUser
         if (firebaseUser == null) {
             startActivity(Intent(requireActivity(), LoginActivity::class.java))
         }else{
             db = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid)
-            db.get().addOnSuccessListener{
-                val kdSekolah =  it.child("kodeSekolah").value
+            db.get().addOnSuccessListener{ snapshot ->
+                val kdSekolah = snapshot.child("kodeSekolah").value
                 dbi = FirebaseDatabase.getInstance().getReference("kode_sekolah").child(kdSekolah.toString())
                 dbi.get().addOnSuccessListener {
-                   val namaSekolah = it.child("namaSekolah").value.toString()
-                   val alamat = it.child("alamat").value.toString()
-                   val namaKepalaSekolah = it.child("namaKepalaSekolah").value.toString()
+                   val schoolName = it.child("namaSekolah").value.toString()
+                   val address = it.child("alamat").value.toString()
 
-                    binding.tvNamaSekolah.text = namaSekolah
-                    binding.tvAlamat.text =alamat
+                    binding.tvNamaSekolah.text = schoolName
+                    binding.tvAlamat.text = address
                 }
             }
         }
