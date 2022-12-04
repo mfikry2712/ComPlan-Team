@@ -9,8 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content">
 
 
         <TextView
@@ -21,7 +20,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="24dp"
             android:layout_marginTop="68dp"
-            android:text="Laporan Fasilitas"
+            android:text="@string/alf_title"
             android:textColor="@color/black"
             android:textSize="35sp"
             android:textStyle="bold" />
@@ -47,10 +46,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="22dp"
                     android:layout_marginEnd="22dp"
+                    android:autofillHints=""
                     android:background="@drawable/custom_edittext_report"
                     android:ems="10"
+                    android:hint="@string/txt_hint_location_facility"
                     android:inputType="textPersonName"
+                    android:minHeight="48dp"
                     android:padding="10dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.583"
                     app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
-                    android:text="Lokasi Fasilitas"
+                    android:text="@string/alf_facility_location"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -78,7 +81,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="22dp"
                     android:background="@drawable/custom_button"
-                    android:text="Kirim"
+                    android:text="@string/txt_send"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="16dp"
-                    android:text="Nama Fasilitas"
+                    android:text="@string/alf_facility_name"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -103,9 +106,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="22dp"
                     android:layout_marginEnd="22dp"
+                    android:autofillHints=""
                     android:background="@drawable/custom_edittext_report"
                     android:ems="10"
+                    android:hint="@string/txt_hint_name_facility"
                     android:inputType="textPersonName"
+                    android:minHeight="48dp"
                     android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.583"
@@ -118,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
-                    android:text="Isi Laporan"
+                    android:text="@string/txt_desc"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -133,6 +139,7 @@
                     android:layout_marginEnd="22dp"
                     android:background="@drawable/custom_edittext_report"
                     android:ems="10"
+                    android:hint="@string/txt_hint_desc"
                     android:gravity="top"
                     android:inputType="textMultiLine"
                     android:lines="6"
@@ -143,24 +150,27 @@
                     android:scrollHorizontally="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView6"
+                    android:autofillHints="" />
 
                 <EditText
                     android:id="@+id/editTextTextPersonName4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autofillHints=""
                     android:background="@drawable/custom_edittext_warning"
                     android:drawableStart="@drawable/ic_info"
                     android:drawablePadding="10dp"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="15dp"
-                    android:text="Mohon jangan berikan laporan palsu!"
+                    android:text="@string/txt_form_warning"
                     android:textAlignment="inherit"
                     android:textColor="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextContrastCheck" />
 
                 <ImageButton
                     android:id="@+id/btnSelectImage"
@@ -171,6 +181,7 @@
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="425dp"
                     android:background="@drawable/custom_button_menu"
+                    android:contentDescription="@string/desc_alf_img1"
                     android:elevation="5dp"
                     android:padding="10dp"
                     android:scaleType="fitXY"
@@ -180,7 +191,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.147"
-                    app:srcCompat="@drawable/gambar_image" />
+                    app:srcCompat="@drawable/gambar_image"
+                    tools:ignore="RedundantDescriptionCheck" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline7"
@@ -201,6 +213,10 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/custom_button_menu"
-            app:srcCompat="@drawable/ic_back" />
+            android:contentDescription="@string/desc_alf_img2"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            app:srcCompat="@drawable/ic_back"
+            tools:ignore="RedundantDescriptionCheck" />
     </RelativeLayout>
 </ScrollView>

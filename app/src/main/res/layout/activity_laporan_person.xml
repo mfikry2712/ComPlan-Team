@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/btnBack"
@@ -19,7 +19,11 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/custom_button_menu"
-            app:srcCompat="@drawable/ic_back" />
+            android:contentDescription="@string/desc_alp_img1"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            app:srcCompat="@drawable/ic_back"
+            tools:ignore="RedundantDescriptionCheck" />
 
 
         <TextView
@@ -30,7 +34,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="24dp"
             android:layout_marginTop="68dp"
-            android:text="Laporan Oknum"
+            android:text="@string/alp_title"
             android:textColor="@color/black"
             android:textSize="35sp"
             android:textStyle="bold" />
@@ -56,15 +60,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="22dp"
                     android:layout_marginEnd="22dp"
+                    android:autofillHints=""
                     android:background="@drawable/custom_edittext_report"
                     android:ems="10"
+                    android:hint="@string/alp_person_category"
                     android:inputType="textPersonName"
+                    android:minHeight="48dp"
                     android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.583"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView7"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -72,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
-                    android:text="Jenis Pelanggaran"
+                    android:text="@string/alp_person_category"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -87,7 +94,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="22dp"
                     android:background="@drawable/custom_button"
-                    android:text="Kirim"
+                    android:text="@string/txt_send"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="20dp"
-                    android:text="Nama Oknum"
+                    android:text="@string/alp_person_name"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -112,14 +119,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="22dp"
                     android:layout_marginEnd="22dp"
+                    android:autofillHints=""
                     android:background="@drawable/custom_edittext_report"
                     android:ems="10"
+                    android:hint="@string/alp_person_name"
                     android:inputType="textPersonName"
+                    android:minHeight="48dp"
                     android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.583"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -127,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
-                    android:text="Isi Laporan"
+                    android:text="@string/txt_desc"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -143,6 +154,7 @@
                     android:background="@drawable/custom_edittext_report"
                     android:ems="10"
                     android:gravity="top"
+                    android:hint="@string/txt_hint_desc"
                     android:inputType="textMultiLine"
                     android:lines="6"
                     android:overScrollMode="always"
@@ -152,24 +164,27 @@
                     android:scrollHorizontally="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView6"
+                    android:autofillHints="" />
 
                 <EditText
                     android:id="@+id/editTextTextPersonName4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autofillHints=""
                     android:background="@drawable/custom_edittext_warning"
                     android:drawableStart="@drawable/ic_info"
                     android:drawablePadding="10dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:padding="7dp"
-                    android:text="Mohon jangan berikan laporan palsu!"
+                    android:padding="15dp"
+                    android:text="@string/txt_form_warning"
                     android:textAlignment="inherit"
                     android:textColor="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextContrastCheck" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline5"

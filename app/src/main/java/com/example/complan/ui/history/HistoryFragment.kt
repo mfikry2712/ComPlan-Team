@@ -47,8 +47,8 @@ class HistoryFragment : Fragment() {
     companion object{
         @StringRes
         private val TAB_TITLES = intArrayOf(
-            R.string.tFasilitas,
-            R.string.tOknum
+            R.string.tab_person,
+            R.string.tab_facility
         )
     }
 }

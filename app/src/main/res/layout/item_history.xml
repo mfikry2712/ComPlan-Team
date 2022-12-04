@@ -25,7 +25,7 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            tools:text="namaHero" />
+            tools:text="@string/ih_name" />
 
         <TextView
             android:id="@+id/tv_jenis2"
@@ -37,7 +37,7 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_namaSuspect"
-            tools:text="namaHero" />
+            tools:text="@string/ih_category" />
 
         <TextView
             android:id="@+id/tv_tanggal"
@@ -51,7 +51,7 @@
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_jenis2"
             card_view:layout_constraintVertical_bias="1.0"
-            tools:text="tanggal" />
+            tools:text="@string/ih_time" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
