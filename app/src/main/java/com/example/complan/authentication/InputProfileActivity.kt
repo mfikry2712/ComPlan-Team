@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.complan.splashscreen.MainActivity
 import com.example.complan.R
 import com.example.complan.databinding.ActivityInputProfileBinding
+import com.example.complan.menuandpager.Menu
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
@@ -66,7 +67,7 @@ class InputProfileActivity : AppCompatActivity() {
                             Toast.makeText(this, "Error" + errorStatus.message, Toast.LENGTH_SHORT).show()
                         } else {
                             Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@InputProfileActivity, MainActivity::class.java))
+                            startActivity(Intent(this@InputProfileActivity, Menu::class.java))
                             finish()
                         }
                     }
