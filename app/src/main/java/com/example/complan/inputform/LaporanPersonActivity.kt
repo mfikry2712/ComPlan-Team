@@ -47,7 +47,7 @@ class LaporanPersonActivity : AppCompatActivity() {
                 Date().time
             )
             dbi.get().addOnSuccessListener{
-               val kdSekolah =  it.child("kodeSekolah").value
+               val kdSekolah =  it.child("schoolCode").value
                 db.child(kdSekolah.toString()).child("Laporan").child(firebaseUser.uid).child("Laporan Orang").push().setValue(friendlyMessage) { error, _ ->
                     if (error != null) {
                         Toast.makeText(this, "Error" + error.message, Toast.LENGTH_SHORT).show()

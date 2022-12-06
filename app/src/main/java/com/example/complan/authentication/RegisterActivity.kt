@@ -40,7 +40,7 @@ class RegisterActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
             if (it.isSuccessful){
                 Toast.makeText(this, "Successful registration!", Toast.LENGTH_LONG).show()
-                startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                startActivity(Intent(this@RegisterActivity, InputProfileActivity::class.java))
             }else{
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_LONG).show()
             }

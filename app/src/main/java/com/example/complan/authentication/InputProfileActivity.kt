@@ -55,22 +55,28 @@ class InputProfileActivity : AppCompatActivity() {
                 schoolCode.text.toString()
             )
 
-            dbi.reference.child(CHILD_USER).child(firebaseUser.uid).setValue(dataStudent){ error, _ ->
-                if (error != null) {
-                    Toast.makeText(this, "Error" + error.message, Toast.LENGTH_SHORT).show()
-                } else {
-                    dbi.reference.child(CHILD_SCHOOL).child(schoolCode.text.toString()).child(
-                        CHILD_USER
-                    )
-                        .child(firebaseUser.uid).setValue(dataStudent) { errorStatus, _ ->
-                        if (errorStatus != null) {
-                            Toast.makeText(this, "Error" + errorStatus.message, Toast.LENGTH_SHORT).show()
+            dbi.reference.child(CHILD_SCHOOL).child(schoolCode.text.toString()).get().addOnSuccessListener {
+                if (it.exists()){
+                    dbi.reference.child(CHILD_USER).child(firebaseUser.uid).setValue(dataStudent){ error, _ ->
+                        if (error != null) {
+                            Toast.makeText(this, "Error" + error.message, Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@InputProfileActivity, Menu::class.java))
-                            finish()
+                            dbi.reference.child(CHILD_SCHOOL).child(schoolCode.text.toString()).child(
+                                CHILD_USER
+                            )
+                                .child(firebaseUser.uid).setValue(dataStudent) { errorStatus, _ ->
+                                    if (errorStatus != null) {
+                                        Toast.makeText(this, "Error" + errorStatus.message, Toast.LENGTH_SHORT).show()
+                                    } else {
+                                        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                                        startActivity(Intent(this@InputProfileActivity, Menu::class.java))
+                                        finish()
+                                    }
+                                }
                         }
                     }
+                }else{
+                    Toast.makeText(this, "Kode sekolah tidak ditemukan", Toast.LENGTH_SHORT).show()
                 }
             }
         }

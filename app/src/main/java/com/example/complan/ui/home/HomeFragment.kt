@@ -40,11 +40,11 @@ class HomeFragment : Fragment() {
         }else{
             db = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid)
             db.get().addOnSuccessListener{ snapshot ->
-                val kdSekolah = snapshot.child("kodeSekolah").value
+                val kdSekolah = snapshot.child("schoolCode").value
                 dbi = FirebaseDatabase.getInstance().getReference("kode_sekolah").child(kdSekolah.toString())
                 dbi.get().addOnSuccessListener {
-                   val schoolName = it.child("namaSekolah").value.toString()
-                   val address = it.child("alamat").value.toString()
+                   val schoolName = it.child("schoolName").value.toString()
+                   val address = it.child("domicile").value.toString()
 
                     binding.tvNamaSekolah.text = schoolName
                     binding.tvAlamat.text = address

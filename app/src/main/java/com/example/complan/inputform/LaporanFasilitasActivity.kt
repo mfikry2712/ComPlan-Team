@@ -73,7 +73,7 @@ class LaporanFasilitasActivity : AppCompatActivity() {
                 )
                 dbi = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid)
                 dbi.get().addOnSuccessListener {
-                    val kdSekolah = it.child("kodeSekolah").value
+                    val kdSekolah = it.child("schoolCode").value
                     db.child(kdSekolah.toString()).child("Laporan").child(firebaseUser.uid).child("Laporan Fasilitas").push()
                         .setValue(friendlyMessage) { error, _ ->
                             if (error != null) {

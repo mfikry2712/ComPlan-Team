@@ -28,24 +28,14 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         val firebaseUser = auth.currentUser
+        if (firebaseUser == null) {
+            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+        }else{
 
         authReference = FirebaseDatabase.getInstance().getReference("user")
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (firebaseUser == null) {
-                // Not signed in, launch the Login activity
-                startActivity(Intent(this, LoginActivity::class.java))
-            } else {
-                updateUI(firebaseUser)
-            }
-            finish()
-        },2000)
-
-    }
-
-    private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser != null){
-            authReference.child(currentUser.uid).get().addOnSuccessListener{
+            authReference.child(firebaseUser.uid).get().addOnSuccessListener{
                 if (it.exists()){
                     val o = Intent(this@MainActivity,  Menu::class.java)
                     startActivity(o)
@@ -54,6 +44,12 @@ class MainActivity : AppCompatActivity() {
                     startActivity(o)
                 }
             }
-        }
+            finish()
+        }, delayMillis)
+
+    }}
+
+    companion object{
+        const val delayMillis : Long = 2000
     }
 }
