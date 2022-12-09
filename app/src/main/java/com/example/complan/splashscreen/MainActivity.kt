@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import com.example.complan.R
 import com.example.complan.authentication.InputProfileActivity
 import com.example.complan.authentication.LoginActivity
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
                     val o = Intent(this@MainActivity,  InputProfileActivity::class.java)
                     startActivity(o)
                 }
+            }.addOnFailureListener{
+                Log.d("Error Failure",it.message.toString())
             }
             finish()
         }, delayMillis)

@@ -120,22 +120,32 @@ class LaporanFasilitasActivity : AppCompatActivity() {
 
 
                 val friendlyMessage = DataLaporanFasilitas(
+                    firebaseUser.uid,
                     binding.edtFasilitasName.text.toString(),
                     binding.edtFasilitasLokasi.text.toString(),
                     binding.edtDescription.text.toString(),
                     namaFoto,
-                    Date().time
+                    Date().time,
+                    false
                 )
                 dbi = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.uid)
                 dbi.get().addOnSuccessListener {
                     val kdSekolah = it.child("schoolCode").value
-                    db.child(kdSekolah.toString()).child("Laporan").child(firebaseUser.uid).child("Laporan Fasilitas").push()
+                    db.child(kdSekolah.toString()).child("Laporan").child("Laporan Fasilitas").push()
                         .setValue(friendlyMessage) { error, _ ->
                             if (error != null) {
                                 Toast.makeText(this, "gagal" + error.message, Toast.LENGTH_SHORT)
                                     .show()
                             } else {
-                                Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
+                                dbi.child("Laporan").child("Laporan Fasilitas").push()
+                                    .setValue(friendlyMessage) { error, _ ->
+                                        if (error != null) {
+                                            Toast.makeText(this, "gagal" + error.message, Toast.LENGTH_SHORT)
+                                                .show()
+                                        } else {
+                                            Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
                             }
                         }
                 }

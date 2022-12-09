@@ -61,11 +61,10 @@ class FragmentRiwayatPerson : Fragment() {
         }
 
         dbi.get().addOnSuccessListener{
-            kd =  it.child("kodeSekolah").value.toString()
+            kd =  it.child("schoolCode").value.toString()
             Log.d("test value of kd", kd)
             msgRef.value = db.reference.child("kode_sekolah")
                 .child(kd).child("Laporan")
-                .child(firebaseUser!!.uid)
                 .child("Laporan Orang")
         }
         msgRef.observe(requireActivity()){
