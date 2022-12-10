@@ -6,9 +6,10 @@ Muhammad Fikry
 - Membuat fitur authentication
 - Membuat fitur login google dan email password dengan firebase
 - Membuat fitur register dengan email dan password dengan firebase
-- Membuat activity laporan oknum dengan firebase
-- Membuat activity menu
+- Membuat activity laporan oknum dengan firebase storage
 - Membuat activity laporan fasilitas dengan firebase storage
-
-On Proses
-- Membuat Activity Laporan fasilitas agar tampilan bagus
+- Membuat activity menu
+- Membuat Fragment riwayat laporan oknum
+- Membuat Fragment riwayat laporan fasilitas
+- Membuat Activity Profile
+- Membuat Bottom Navigation
