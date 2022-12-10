@@ -156,6 +156,8 @@
 
                 <EditText
                     android:id="@+id/editTextTextPersonName4"
+                    android:inputType="none"
+                    android:clickable="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
@@ -163,7 +165,6 @@
                     android:drawableStart="@drawable/ic_info"
                     android:drawablePadding="10dp"
                     android:ems="10"
-                    android:inputType="textPersonName"
                     android:padding="15dp"
                     android:text="@string/txt_form_warning"
                     android:textAlignment="inherit"

@@ -10,8 +10,9 @@
 
     <TextView
         android:id="@+id/passwordText2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:text="@string/txt_hint_confirm_password"
         android:textColor="@color/black"
@@ -95,8 +96,9 @@
 
     <TextView
         android:id="@+id/emailText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="28dp"
         android:text="@string/txt_email"
         android:textColor="@color/black"
@@ -109,8 +111,9 @@
 
     <TextView
         android:id="@+id/passwordText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:text="@string/txt_password"
         android:textColor="@color/black"
@@ -124,24 +127,24 @@
 
     <com.example.complan.customview.CustomButton
         android:id="@+id/btnSendSignUp"
-        android:enabled="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
+        android:enabled="false"
         android:text="@string/txt_register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtConfirmPassword"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="25dp"
         android:text="@string/ar_title"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -157,7 +160,7 @@
         android:id="@+id/welcomeText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="25dp"
         android:text="@string/ar_subtitle"
         android:textColor="@color/black_50"
         android:textSize="15sp"

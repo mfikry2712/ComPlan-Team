@@ -8,7 +8,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.Toast
-import com.example.complan.splashscreen.MainActivity
 import com.example.complan.R
 import com.example.complan.databinding.ActivityInputProfileBinding
 import com.example.complan.menuandpager.Menu

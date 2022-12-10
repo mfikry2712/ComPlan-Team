@@ -57,8 +57,9 @@
 
     <TextView
         android:id="@+id/emailText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:text="@string/txt_email"
         android:textColor="@color/black"
@@ -85,8 +86,9 @@
 
     <TextView
         android:id="@+id/passwordText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="12dp"
         android:text="@string/txt_password"
         android:textColor="@color/black"
@@ -147,8 +149,9 @@
 
     <TextView
         android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:text="@string/al_title"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -162,8 +165,9 @@
 
     <TextView
         android:id="@+id/welcomeText2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:text="@string/al_subtitle"
         android:textColor="@color/black_50"
         android:textSize="15sp"

@@ -36,7 +36,7 @@ class LaporanOknumAdapter(
             if (item.timestamp != null) {
                 binding.tvTanggal.text = DateUtils.getRelativeTimeSpanString(item.timestamp)
             }
-            binding.tvJenis2.text = item.description
+            binding.tvJenis2.text = item.violationType
         }
     }
 }
